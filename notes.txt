@@ -1,0 +1,28 @@
+I am a software engineering leader with over 13 years of experience, currently operating as a Senior Engineering Manager at RingCentral managing high throughput, real time communication architectures. 
+
+Driven by a deep passion for financial systems, blockchain infrastructure, and Web3, I am also the first community maverick of the DhanHQ trading community, helping Indian retail traders deploy algorithmic strategies and custom TradingView tools. 
+
+As a solo founder, I combined this enterprise scale engineering experience with grassroots community insights to independently build Kross.money from scratch - an account abstracted trading terminal optimized for sub second execution on Crypto exchanges. I am ready to transition 100% full time through Antler to leverage institutional backing, navigate local INR compliance/onramp/offramp frameworks, and scale our live Mainnet directly to a primed trading audience.
+
+
+
+
+
+
+
+
+
+
+Kross.money is a high performance, web based trading terminal that unifies global decentralized perpetual markets by using account abstraction (via Privy) to offer a gasless, one click Web2 user experience with the absolute security of self custodial finance.
+
+The problem space addresses retail traders who face severe counterparty risks, account freezes, and platform bankruptcies on traditional centralized exchanges (CEXs), yet find existing decentralized finance (DeFi) alternatives structurally confusing and plagued by gas fee friction. The market potential is immense, unlocking institutional grade, non custodial trading for millions of mainstream retail and algorithmic investors globally without compromising their capital control. 
+
+I built Kross.money because active traders are currently forced to compromise between security, speed, and complex Web3 jargon. My goal is to deliver the familiar, seamless execution of a traditional brokerage interface backed by the absolute transparency and safety of a complete DeFi architecture.
+
+
+
+
+
+
+
+Algorithmic trading tool development and optimization. Over the last few years, I’ve taken my passion for financial markets to an extreme level by becoming the first community maverick for the DhanHQ trading community, where I spend my personal hours helping hundreds of retail traders build chrome extensions, algo trading applications, options strategies, indicators, optimize TradingView alerts, and automate their execution flows. This obsession with cutting down retail trading latency and removing friction is the exact catalyst that drove me to build Kross.money.
