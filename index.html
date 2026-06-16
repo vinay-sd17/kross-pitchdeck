@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kross.money — Pitch Deck</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+          rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --white: #FFFFFF;
+            --navy: #0A0F1E;
+            --blue: #2563EB;
+            --blue-light: #3B82F6;
+            --blue-pale: #EFF6FF;
+            --green: #10B981;
+            --slate: #64748B;
+            --slate-light: #94A3B8;
+            --surface: #F8FAFC;
+            --border: #E2E8F0;
+            --red: #EF4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #CBD5E1;
+            color: var(--navy);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .controls {
+            margin-bottom: 32px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .controls button {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.2s;
+        }
+
+        .controls button:hover {
+            background: var(--blue);
+        }
+
+        .controls .hint {
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .deck {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1100px;
+            aspect-ratio: 16/9;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 20px 60px -10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .slide-label {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #94A3B8;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        /* SHARED */
+        .slide-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 44px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .slide-header .section-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: var(--blue-pale);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .slide-header .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+            color: var(--navy);
+        }
+
+        .slide-header .brand .dot {
+            color: var(--blue);
+        }
+
+        .slide-header .page-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--slate-light);
+        }
+
+        .slide-content {
+            padding: 20px 44px;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 44px;
+            border-top: 1px solid var(--border);
+            background: var(--surface);
+            flex-shrink: 0;
+        }
+
+        .slide-footer a {
+            font-size: 12px;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .slide-footer .slide-num {
+            font-size: 11px;
+            color: var(--slate-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .slide-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 2.8vw, 30px);
+            color: var(--navy);
+            line-height: 1.15;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+            flex-shrink: 0;
+        }
+
+        /* SLIDE 1 */
+        .slide-cover {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cover-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 80px;
+        }
+
+        .cover-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(48px, 7vw, 80px);
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 14px;
+            letter-spacing: -0.02em;
+        }
+
+        .cover-logo .dot {
+            color: var(--blue);
+        }
+
+        .cover-sub {
+            font-size: clamp(14px, 1.8vw, 18px);
+            color: var(--slate);
+            font-weight: 400;
+            max-width: 560px;
+            line-height: 1.6;
+            margin-bottom: 36px;
+            font-style: italic;
+            font-family: 'DM Serif Display', serif;
+        }
+
+        .metrics-row {
+            display: flex;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .metric-pill {
+            padding: 12px 24px;
+            text-align: center;
+            flex: 1;
+            border-right: 1.5px solid var(--border);
+        }
+
+        .metric-pill:last-child {
+            border-right: none;
+        }
+
+        .metric-pill .m-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(16px, 2.2vw, 22px);
+            font-weight: 500;
+            color: var(--blue);
+            display: block;
+        }
+
+        .metric-pill .m-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--slate);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* SLIDE 2 */
+        .ps-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .ps-card {
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ps-card.problem {
+            background: #FFF5F5;
+            border: 1.5px solid #FECACA;
+        }
+
+        .ps-card.solution {
+            background: #F0FDF4;
+            border: 1.5px solid #BBF7D0;
+        }
+
+        .ps-card-head {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ps-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .problem .ps-icon {
+            background: #FEE2E2;
+        }
+
+        .solution .ps-icon {
+            background: #D1FAE5;
+        }
+
+        .ps-card-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(12px, 1.4vw, 14px);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .problem .ps-card-title {
+            color: #991B1B;
+        }
+
+        .solution .ps-card-title {
+            color: #065F46;
+        }
+
+        .pain-list, .sol-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .pain-list li, .sol-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: clamp(11px, 1.1vw, 12.5px);
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .pain-list li {
+            color: #7F1D1D;
+        }
+
+        .sol-list li {
+            color: #064E3B;
+        }
+
+        .pain-list li::before {
+            content: '✕';
+            color: var(--red);
+            font-weight: 700;
+            font-size: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .sol-list li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+            font-size: 11px;
+            margin-top: 1px;
+            flex-shrink: 0;
+        }
+
+        /* SLIDE 3 */
+        .arch-flow {
+            display: grid;
+            grid-template-columns:repeat(4, 1fr);
+            gap: 10px;
+            flex: 1;
+        }
+
+        .arch-layer {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .arch-layer-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 500;
+            color: var(--slate-light);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .arch-icon-wrap {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .arch-layer-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: clamp(11px, 1.2vw, 13px);
+            color: var(--navy);
+            line-height: 1.2;
+        }
+
+        .arch-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+        }
+
+        .arch-bullets li {
+            font-size: clamp(10px, 0.95vw, 11px);
+            color: var(--slate);
+            line-height: 1.4;
+            padding-left: 13px;
+            position: relative;
+        }
+
+        .arch-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 9px;
+            top: 2px;
+        }
+
+        .arch-badge {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        .arch-layer.l1 {
+            border-top: 3px solid var(--blue);
+        }
+
+        .arch-layer.l1 .arch-icon-wrap {
+            background: var(--blue-pale);
+        }
+
+        .arch-layer.l1 .arch-badge {
+            background: var(--blue-pale);
+            color: var(--blue);
+        }
+
+        .arch-layer.l2 {
+            border-top: 3px solid var(--navy);
+        }
+
+        .arch-layer.l2 .arch-icon-wrap {
+            background: #F1F5F9;
+        }
+
+        .arch-layer.l2 .arch-badge {
+            background: #F1F5F9;
+            color: var(--navy);
+        }
+
+        .arch-layer.l3 {
+            border-top: 3px solid var(--green);
+        }
+
+        .arch-layer.l3 .arch-icon-wrap {
+            background: #F0FDF4;
+        }
+
+        .arch-layer.l3 .arch-badge {
+            background: #F0FDF4;
+            color: #065F46;
+        }
+
+        .arch-layer.l4 {
+            border-top: 3px solid #F59E0B;
+        }
+
+        .arch-layer.l4 .arch-icon-wrap {
+            background: #FFFBEB;
+        }
+
+        .arch-layer.l4 .arch-badge {
+            background: #FFFBEB;
+            color: #92400E;
+        }
+
+        /* SLIDE 4 - MARKET */
+        .opp-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 14px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .opp-left, .opp-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 0;
+        }
+
+        .big-stat-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--blue);
+            border-radius: 10px;
+            padding: 18px 22px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+        }
+
+        .big-stat-card .bsv {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 3.8vw, 42px);
+            color: var(--navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .big-stat-card .bsv span {
+            font-size: 0.36em;
+            color: var(--blue);
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        .big-stat-card .bsl {
+            font-size: 11.5px;
+            color: var(--slate);
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .mini-stat {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mini-stat .msv {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(14px, 1.7vw, 19px);
+            font-weight: 500;
+            color: var(--navy);
+            display: block;
+        }
+
+        .mini-stat .msl {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--slate);
+            margin-top: 4px;
+            display: block;
+        }
+
+        .roadmap-card {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .roadmap-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--navy);
+            margin-bottom: 10px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .rm-items {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .rm-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            color: var(--slate);
+            line-height: 1.4;
+            font-weight: 500;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rm-item:last-child {
+            border-bottom: none;
+        }
+
+        .rm-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-shrink: 0;
+            width: 76px;
+        }
+
+        .rm-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .rm-dot.done {
+            background: var(--green);
+        }
+
+        .rm-dot.progress {
+            background: var(--blue);
+        }
+
+        .rm-dot.planned {
+            background: var(--border);
+            border: 1.5px solid var(--slate-light);
+        }
+
+        .rm-tag {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .rm-tag.done {
+            color: var(--green);
+        }
+
+        .rm-tag.progress {
+            color: var(--blue);
+        }
+
+        .rm-tag.planned {
+            color: var(--slate-light);
+        }
+
+        /* SLIDE 5 - MONETISATION */
+        .mono-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 14px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .mono-col {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-height: 0;
+        }
+
+        .mono-plan {
+            border-radius: 10px;
+            padding: 16px 18px;
+            border: 1.5px solid var(--border);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mono-plan.featured {
+            border: 2px solid var(--blue);
+            background: var(--blue-pale);
+        }
+
+        .mono-plan-badge {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: white;
+            padding: 3px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        .mono-plan.featured .mono-plan-badge {
+            background: var(--blue);
+            color: white;
+        }
+
+        .mono-plan-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(22px, 3vw, 32px);
+            color: var(--navy);
+            line-height: 1;
+        }
+
+        .mono-plan-price span {
+            font-size: 0.45em;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: var(--slate);
+            vertical-align: middle;
+        }
+
+        .mono-plan-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--navy);
+        }
+
+        .mono-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 4px;
+        }
+
+        .mono-features li {
+            font-size: 11px;
+            color: var(--slate);
+            line-height: 1.4;
+            padding-left: 14px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .mono-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 9px;
+            top: 2px;
+        }
+
+        .mono-note {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--green);
+            border-radius: 10px;
+            padding: 14px 16px;
+            font-size: 11.5px;
+            color: var(--slate);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .mono-note strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 12px;
+        }
+
+        /* SLIDE 6 - WHY ANTLER */
+        .antler-grid {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 14px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .antler-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .antler-right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .antler-intro {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-left: 4px solid var(--blue);
+            border-radius: 10px;
+            padding: 16px 18px;
+            font-size: 12px;
+            color: var(--slate);
+            line-height: 1.65;
+            font-weight: 500;
+        }
+
+        .antler-intro strong {
+            color: var(--navy);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-family: 'DM Serif Display', serif;
+            letter-spacing: -0.01em;
+        }
+
+        .antler-needs {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .antler-need {
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .antler-need-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+            background: var(--blue-pale);
+        }
+
+        .antler-need-body {
+        }
+
+        .antler-need-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .antler-need-desc {
+            font-size: 11px;
+            color: var(--slate);
+            line-height: 1.45;
+            font-weight: 500;
+        }
+
+        .antler-ask {
+            background: var(--navy);
+            border-radius: 10px;
+            padding: 16px 18px;
+            color: white;
+        }
+
+        .antler-ask-label {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-bottom: 6px;
+        }
+
+        .antler-ask-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(16px, 2vw, 20px);
+            color: white;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .antler-ask-sub {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.5;
+        }
+
+        /* SLIDE 7 - CLOSE */
+        .close-slide {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .close-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 44px;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+
+        .close-header .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+            color: var(--navy);
+        }
+
+        .close-header .brand .dot {
+            color: var(--blue);
+        }
+
+        .close-header .section-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            background: var(--blue-pale);
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        .close-header .page-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--slate-light);
+        }
+
+        .close-body {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .close-left {
+            padding: 32px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+            border-right: 1px solid var(--border);
+        }
+
+        .close-headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(24px, 3.2vw, 38px);
+            color: var(--navy);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .close-headline em {
+            font-style: italic;
+            color: var(--blue);
+        }
+
+        .close-desc {
+            font-size: clamp(11px, 1.15vw, 13px);
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .close-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .close-link {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            letter-spacing: 0.02em;
+        }
+
+        .close-link.primary {
+            background: var(--blue);
+            color: white;
+        }
+
+        .close-link.outline {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--navy);
+        }
+
+        .close-right {
+            padding: 32px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+            background: var(--surface);
+        }
+
+        .close-contact-title {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--slate-light);
+        }
+
+        .contact-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contact-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+        }
+
+        .contact-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(12px, 1.3vw, 14px);
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        .contact-val a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        .close-meta {
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 18px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .meta-label {
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate-light);
+        }
+
+        .meta-val {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--slate);
+        }
+
+        .close-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 44px;
+            border-top: 1px solid var(--border);
+            background: var(--white);
+            flex-shrink: 0;
+        }
+
+        .close-footer a {
+            font-size: 12px;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .close-footer .slide-num {
+            font-size: 11px;
+            color: var(--slate-light);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+
+            .controls, .slide-label {
+                display: none !important;
+            }
+
+            .deck {
+                gap: 0;
+            }
+
+            .slide {
+                border-radius: 0;
+                box-shadow: none;
+                max-width: 100%;
+                width: 100vw;
+                height: 100vh;
+                aspect-ratio: auto;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="controls">
+    <button onclick="window.print()">&#8595; Download as PDF</button>
+    <span class="hint">Browser Print &#8594; Save as PDF &#8594; Layout: Landscape</span>
+</div>
+<div class="deck">
+
+    <!-- SLIDE 1 -->
+    <div class="slide-label">Slide 1 — Cover</div>
+    <div class="slide slide-cover">
+        <div class="cover-body">
+            <div class="cover-logo">Kross<span class="dot">.</span>money</div>
+            <div class="cover-sub">Trade crypto perps. One terminal.</div>
+            <div class="metrics-row">
+                <div class="metric-pill"><span class="m-val">1s</span><span class="m-label">Order Execution</span></div>
+                <div class="metric-pill"><span class="m-val">&lt;800ms</span><span
+                        class="m-label">Order Cancellations</span></div>
+                <div class="metric-pill"><span class="m-val">$0</span><span class="m-label">Custody Risk</span></div>
+                <div class="metric-pill"><span class="m-val">$0</span><span class="m-label">Gas Fees</span></div>
+            </div>
+        </div>
+        <div class="close-footer">
+            <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+            <span class="slide-num">01 / 06</span>
+        </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide-label">Slide 2 — Problem &amp; Solution</div>
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="slide-header">
+                <span class="section-tag">The Opportunity</span>
+                <span class="brand">Kross<span class="dot">.</span>money</span>
+                <span class="page-num">02 / 06</span>
+            </div>
+            <div class="slide-content">
+                <div class="slide-title">The market is broken.</div>
+                <div class="ps-grid">
+                    <div class="ps-card problem">
+                        <div class="ps-card-head">
+                            <div class="ps-icon">&#9888;</div>
+                            <div class="ps-card-title">The Problem with Today's Options</div>
+                        </div>
+                        <ul class="pain-list">
+                            <li>Centralized exchanges control user funds - they can lend, invest, or freeze them.</li>
+                            <li>DeFi platforms require complex setup like wallets, seed phrases, gas fee management.
+                            </li>
+                            <li>Most retail traders quit before they ever place a trade on crypto exchanges.</li>
+                            <li>Self-custody on a DEX has always meant slower execution.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ps-card solution">
+                        <div class="ps-card-head">
+                            <div class="ps-icon">&#10022;</div>
+                            <div class="ps-card-title">The Kross.money resolution</div>
+                        </div>
+                        <ul class="sol-list">
+                            <li>Sign in with Google or Apple ID - no wallet setup, no seed phrases required.</li>
+                            <li>Non-custodial smart wallets via account abstraction - technically impossible for us to
+                                touch user funds.
+                            </li>
+                            <li>Gas, abstracted away. The UX feels like a CEX but the custody doesn't.</li>
+                            <li>All trades settle permissionlessly, always-on, no single point of failure.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="close-footer">
+                <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+                <span class="slide-num">02 / 06</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide-label">Slide 3 — Architecture</div>
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="slide-header">
+                <span class="section-tag">Technology</span>
+                <span class="brand">Kross<span class="dot">.</span>money</span>
+                <span class="page-num">03 / 06</span>
+            </div>
+            <div class="slide-content">
+                <div class="slide-title">A four-layer architecture.</div>
+                <div class="arch-flow">
+                    <div class="arch-layer l1">
+                        <div class="arch-layer-num">Layer 01</div>
+                        <div class="arch-icon-wrap">&#128187;</div>
+                        <div class="arch-layer-title">Trading Terminal</div>
+                        <br>
+                        <ul class="arch-bullets">
+                            <li>Real-time order books</li>
+                            <li>TradingView charting</li>
+                            <li>Sub-second UI responsiveness</li>
+                            <li>Built for retail &amp; pros</li>
+                        </ul>
+                        <span class="arch-badge">Client Side · Web / Mobile</span>
+                    </div>
+                    <div class="arch-layer l2">
+                        <div class="arch-layer-num">Layer 02</div>
+                        <div class="arch-icon-wrap">&#128272;</div>
+                        <div class="arch-layer-title">Non-Custodial Wallet</div>
+                        <br>
+                        <ul class="arch-bullets">
+                            <li>Powered by Privy.io</li>
+                            <li>Smart wallet on first login</li>
+                            <li>No seed phrases, no setup</li>
+                            <li>Zero authority to move funds</li>
+                        </ul>
+                        <span class="arch-badge">Privy.io</span>
+                    </div>
+                    <div class="arch-layer l3">
+                        <div class="arch-layer-num">Layer 03</div>
+                        <div class="arch-icon-wrap">&#9889;</div>
+                        <div class="arch-layer-title">Permissionless Settlement</div>
+                        <br>
+                        <ul class="arch-bullets">
+                            <li>Direct write to L1 blockchain</li>
+                            <li>No intermediaries</li>
+                            <li>Zero counterparty risk</li>
+                            <li>Always-on 24/7</li>
+                        </ul>
+                        <span class="arch-badge">L1 Chain</span>
+                    </div>
+                    <div class="arch-layer l4">
+                        <div class="arch-layer-num">Layer 04</div>
+                        <div class="arch-icon-wrap">&#128737;</div>
+                        <div class="arch-layer-title">Platform Agnostic</div>
+                        <br>
+                        <ul class="arch-bullets">
+                            <li>Terminal offline? Funds stay safe</li>
+                            <li>Balances always accessible</li>
+                            <li>Natively on underlying exchange</li>
+                            <li>You're never locked out</li>
+                        </ul>
+                        <span class="arch-badge">Self-Sovereign</span>
+                    </div>
+                </div>
+            </div>
+            <div class="close-footer">
+                <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+                <span class="slide-num">03 / 06</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide-label">Slide 4 — Market &amp; Roadmap</div>
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="slide-header">
+                <span class="section-tag">Market</span>
+                <span class="brand">Kross<span class="dot">.</span>money</span>
+                <span class="page-num">04 / 06</span>
+            </div>
+            <div class="slide-content">
+                <div class="slide-title">A massive market. A clear path to capture it.</div>
+                <div class="opp-grid">
+                    <div class="opp-left">
+                        <div class="big-stat-card">
+                            <div class="bsv">$2.95T <span>2025 volume</span></div>
+                            <div class="bsl">Hyperliquid processed $2.95 trillion in trading volume in 2025 - $844M in
+                                revenue, 600K+ new users, now doing $10B+ daily in 2026.
+                            </div>
+                        </div>
+                        <div class="stat-row">
+                            <div class="mini-stat">
+                                <span class="msv">119M+</span>
+                                <span class="msl">Indian Crypto Users</span>
+                            </div>
+                            <div class="mini-stat">
+                                <span class="msv">100%</span>
+                                <span class="msl">Custody Retained</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="opp-right">
+                        <div class="roadmap-card">
+                            <div class="roadmap-title">Product Roadmap</div>
+                            <div class="rm-items">
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot done"></div>
+                                        <span class="rm-tag done">Live</span></div>
+                                    Core trading terminal live at kross.money
+                                </div>
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot done"></div>
+                                        <span class="rm-tag done">Live</span></div>
+                                    Privy account abstraction - zero wallet friction
+                                </div>
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot done"></div>
+                                        <span class="rm-tag done">Live</span></div>
+                                    Hyperliquid L1 direct order routing operational
+                                </div>
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot progress"></div>
+                                        <span class="rm-tag progress">InProgress</span></div>
+                                    Mobile responsive interface &amp; PWA packaging
+                                </div>
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot planned"></div>
+                                        <span class="rm-tag planned">Planned</span></div>
+                                    OnRamp/OffRamp integrations for seamless fiat-crypto flow
+                                </div>
+                                <div class="rm-item">
+                                    <div class="rm-status">
+                                        <div class="rm-dot planned"></div>
+                                        <span class="rm-tag planned">Planned</span></div>
+                                    API access for algo traders &amp; TradingView bots
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="close-footer">
+                <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+                <span class="slide-num">04 / 06</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 5 - MONETISATION -->
+    <div class="slide-label">Slide 5 — Monetisation</div>
+    <div class="slide">
+        <div class="slide-inner">
+            <div class="slide-header">
+                <span class="section-tag">Business Model</span>
+                <span class="brand">Kross<span class="dot">.</span>money</span>
+                <span class="page-num">05 / 06</span>
+            </div>
+            <div class="slide-content">
+                <div class="slide-title">Simple pricing. Recurring revenue.</div>
+                <div class="mono-grid">
+                    <div class="mono-col">
+                        <div class="mono-plan featured">
+                            <span class="mono-plan-badge">Starter</span>
+                            <div class="mono-plan-price">&#8377;499 <span>/ month</span></div>
+                            <div class="mono-plan-name">Unlimited Trading</div>
+                            <ul class="mono-features">
+                                <li>Unlimited trades, no caps.</li>
+                                <li>Non-custodial smart wallet.</li>
+                                <li>Advanced order types.</li>
+                                <li>API access for algo &amp; bots</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mono-col">
+                        <div class="mono-plan" style="border-color:#7C3AED;border-top:3px solid #7C3AED;">
+                            <span class="mono-plan-badge" style="background:#F5F3FF;color:#7C3AED;">AI Pro</span>
+                            <div class="mono-plan-price" style="color:#7C3AED;">&#8377;999 <span>/ month</span></div>
+                            <div class="mono-plan-name">AI-Integrated Trading</div>
+                            <ul class="mono-features">
+                                <li>Everything in Starter</li>
+                                <li>AI trade signals &amp; market analysis</li>
+                                <li>Intelligent position sizing suggestions</li>
+                                <li>Sentiment based entry/exit alerts</li>
+                                <li>Trade from Charts</li>
+                                <li>TradingView webhook automation</li>
+                                <li>Trade Journal</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="close-footer">
+                <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+                <span class="slide-num">05 / 06</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- SLIDE 7 - CLOSE -->
+    <div class="slide-label">Slide 7 — Close</div>
+    <div class="slide">
+        <div class="close-slide">
+            <div class="close-header">
+                <span class="section-tag">Let's Build Together</span>
+                <span class="brand">Kross<span class="dot">.</span>money</span>
+                <span class="page-num">06 / 06</span>
+            </div>
+            <div class="close-body">
+                <div class="close-left">
+                    <div class="close-headline">I'm building the trading<br>terminal <em>I always wanted</em></div>
+                    <div class="close-desc">Deep roots in the Indian trading community. I built Kross.money to eliminate
+                        friction, fast on-chain execution, self custody, zero compromise.
+                    </div>
+                    <div class="close-links">
+                        <a href="https://app-stg.kross.money" class="close-link primary" target="_blank">&#8599; Live
+                            Demo —
+                            Kross.money</a>
+                    </div>
+                </div>
+                <div class="close-right">
+                    <div class="close-contact-title">Get in touch</div>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-val"><a
+                                    href="mailto:vinay@kross.money">vinay@kross.money</a></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Mobile</span>
+                            <span class="contact-val">+91 956 699 6990</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">Website</span>
+                            <span class="contact-val"><a href="https://kross.money"
+                                                         target="_blank">kross.money</a></span>
+                        </div>
+                    </div>
+                    <div class="close-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Platform</span>
+                            <span class="meta-val">Hyperliquid L1</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Custody</span>
+                            <span class="meta-val">Privy.io · Non-Custodial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="close-footer">
+                <a href="https://kross.money" target="_blank">&#8599; kross.money</a>
+                <span class="slide-num">06 / 06</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>document.querySelector('.controls button').addEventListener('click', function () {
+    window.print();
+});</script>
+</body>
+</html>
